@@ -13,24 +13,19 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <body class="text-center bg-info">
+    <body class="text-center text-light bg-dark">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div class="container mb-5">
-            <h1 class="display-1">Marvel Quiz</h1>
-        </div>
-        <div class="difficulty mb-5">
-            <button class="btn btn-primary" id="easy">Easy</button>
-            <button class="btn btn-primary" id="medium">Medium</button>
-            <button class="btn btn-primary" id="hard">Hard</button>
-        </div>
         <div class="container">
-            <div class="lead mb-5" id="quiz"></div>
+            <div class="quiz-container">
+                <div class="lead" id="quiz"></div>
+            </div>
+            <button class="btn btn-secondary" id="previous">Previous Question</button>
+            <button class="btn btn-secondary" id="next">Next Question</button>
             <button class="btn btn-primary" id="submit">Submit Quiz</button>
             <div id="results"></div>
         </div>
-
 
         <script src="/assets/app.js" async defer></script>
     </body>
