@@ -65,11 +65,11 @@ startGame = () => {
 getNewQuestion = () => {
 
     // No more questions? 
-    if(availableQuestions === 0 || questionCounter > MAX_QUESTIONS) {
+    if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
         // go to the end page
-        return window.location.assign(*/end.html*);
+        return window.location.assign('/end.html');
     }
-    // Generate a random question and assign it to the h2 w/ class of question 
+    // Generate a random question and assig it to the h2 w/ class of question 
     questionCounter++;
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
@@ -89,14 +89,31 @@ getNewQuestion = () => {
 // Add click listeners for each choice
 choices.forEach( choice => {
     choice.addEventListener('click', e => {
-        // If we are not accepting answers
+        // If we are not accepting answers return nothing
         if(!acceptingAnswers) return;
-        // 
+        //once an choice is selected
         acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset['number'];
-        console.log(selectedAnswer);
-        getNewQuestion();
+        // check if answer is correct
+        let classToApply = "incorrect"
+        if (selectedAnswer == currentQuestion.answer) {
+            classToApply = "correct";
+            selectedChoice.parentElement.classList.add(classToApply);
+            // delay by 1 second to show if the choice selected is right or wrong.
+            setTimeout(() => {
+                selectedChoice.parentElement.classList.remove(classToApply);
+                // pull new question
+                getNewQuestion();
+            }, 1000);
+        } else {
+            selectedChoice.parentElement.classList.add(classToApply);
+            setTimeout(() => {
+                selectedChoice.parentElement.classList.remove(classToApply);
+                // pull new question
+                getNewQuestion();
+            }, 1000);
+        }
     });
 });
 
