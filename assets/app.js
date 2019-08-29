@@ -1,5 +1,7 @@
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
+const questionCounterText = document.getElementById('questionCounter');
+const scoreText = document.getElementById('score');
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -53,7 +55,7 @@ let questions = [
 // CONSTANTS
 
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
+const MAX_QUESTIONS = 5;
 
 startGame = () => {
     questionCounter = 0;
@@ -71,6 +73,8 @@ getNewQuestion = () => {
     }
     // Generate a random question and assig it to the h2 w/ class of question 
     questionCounter++;
+    questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
+
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
@@ -89,20 +93,26 @@ getNewQuestion = () => {
 // Add click listeners for each choice
 choices.forEach( choice => {
     choice.addEventListener('click', e => {
+
         // If we are not accepting answers return nothing
         if(!acceptingAnswers) return;
+
         //once an choice is selected
         acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset['number'];
+
         // check if answer is correct
         let classToApply = "incorrect"
         if (selectedAnswer == currentQuestion.answer) {
             classToApply = "correct";
+            incrementScore(CORRECT_BONUS);
             selectedChoice.parentElement.classList.add(classToApply);
+
             // delay by 1 second to show if the choice selected is right or wrong.
             setTimeout(() => {
                 selectedChoice.parentElement.classList.remove(classToApply);
+
                 // pull new question
                 getNewQuestion();
             }, 1000);
@@ -116,5 +126,10 @@ choices.forEach( choice => {
         }
     });
 });
+
+incrementScore = num => {
+    score += num;
+    scoreText.innerText = score;
+}
 
 startGame();
