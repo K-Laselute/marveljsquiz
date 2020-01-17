@@ -4,54 +4,29 @@ const progressText = document.getElementById('progressText');
 const scoreText = document.getElementById('score');
 const progressBarFull = document.getElementById('progressBarFull');
 
+const loader = document.getElementById('loader');
+const game = document.getElementById('game');
+
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 
-let questions = [
-    {
-        question: "Who was not part of the original X-Men?",
-        choice1: "Storm",
-        choice2: "Cyclops",
-        choice3: "Iceman",
-        choice4: "Beast",
-        answer: 1
-    },
-    {
-        question: "Where does Dr. Strange seek out a cure for his damaged hands?",
-        choice1: "China",
-        choice2: "Tibet",
-        choice3: "Mongolia",
-        choice4: "New York",
-        answer: 2
-    },
-    {
-        question: "How old is thor",
-        choice1: "100",
-        choice2: "500",
-        choice3: "1000",
-        choice4: "1500",
-        answer: 3
-    },
-    {
-        question: "The comic book version of 'Iron Man' is based on what real-life eccentric?",
-        choice1: "Warren Beatty",
-        choice2: "Elon Musk",
-        choice3: "Howard Hughes",
-        choice4: "Stan Lee",
-        answer: 3
-    },
-    {
-        question: "Vanessa Marianna becomes the wife of this Marvel supervillain",
-        choice1: "Dr. Octopus",
-        choice2: "Kingpin",
-        choice3: "Magneto",
-        choice4: "Dr. Doom",
-        answer: 2
-    }
-];
+let questions = [];
+
+fetch("/assets/questions.json")
+    .then( res => {
+        return res.json();
+    })
+    .then( loadedQuestions => {
+        console.log(loadedQuestions);
+        questions = loadedQuestions;
+        startGame();
+    })
+    .catch( err => {
+        console.error(err);
+    })
 
 // constants
 
@@ -63,6 +38,10 @@ startGame = () => {
     score = 0;
     availableQuestions = [...questions];
     getNewQuestion();
+    setTimeout(() => {
+        game.classList.remove('hidden');
+    }, 2000);
+    loader.classList.add('hidden');
 };
 
 getNewQuestion = () => {
@@ -125,5 +104,3 @@ incrementScore = num => {
     score += num;
     scoreText.innerText = score;
 }
-
-startGame();
