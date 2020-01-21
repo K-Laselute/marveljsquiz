@@ -1,5 +1,9 @@
 :root {
-    background: lightblue;
+    background: linear-gradient(
+        rgba(40, 40, 40, 0.50),
+        rgba(40, 40, 40, 0.50)
+    ),
+    url(/assets/background.jpg);
     font-size: 62.5%;
 }
 
@@ -20,7 +24,8 @@ h4 {
 
 h1 {
     font-size: 5.4rem;
-    color: #56a5eb;
+    color: #FFF;
+    text-shadow: 2px 2px 4px #000000;
     margin-bottom: 5rem;
 }
 
@@ -87,6 +92,7 @@ h3 {
     width: 20rem;
     text-align: center;
     border: 0.1rem solid #56a5eb;
+    border-radius: 2em;
     margin-bottom: 1rem;
     text-decoration: none;
     color: #56a5eb;

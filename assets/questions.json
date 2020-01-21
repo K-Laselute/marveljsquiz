@@ -24,6 +24,14 @@
         "answer": 3
     },
     {
+        "question": "Where do the X-men train?",
+        "choice1": "Threat Room",
+        "choice2": "Menace Room",
+        "choice3": "Crisis Room",
+        "choice4": "Danger Room",
+        "answer": 4
+    },
+    {
         "question": "The comic book version of 'Iron Man' is based on what real-life eccentric?",
         "choice1": "Warren Beatty",
         "choice2": "Elon Musk",
@@ -38,5 +46,37 @@
         "choice3": "Magneto",
         "choice4": "Dr. Doom",
         "answer": 2
+    },
+    {
+        "question": "Which super hero is know as the man without fear?",
+        "choice1": "Moon Knight",
+        "choice2": "Bullseye",
+        "choice3": "Wolverine",
+        "choice4": "Daredevil",
+        "answer": 4
+    },
+    {
+        "question": "Which X-man has pet dragon?",
+        "choice1": "Phoenix",
+        "choice2": "Shadowcat",
+        "choice3": "Wolverine",
+        "choice4": "Nightcrawler",
+        "answer": 2
+    },
+    {
+        "question": "What is Victor von Doom's alter ego?",
+        "choice1": "Dr. Manhattan",
+        "choice2": "Dr. Fate",
+        "choice3": "Dr. Doom",
+        "choice4": "Dr. Strange",
+        "answer": 3
+    },
+    {
+        "question": "Who is the first marvel character to appear in a comic book?",
+        "choice1": "Sub-Mariner",
+        "choice2": "Spider-Man",
+        "choice3": "Captain America",
+        "choice4": "Human Torch",
+        "answer": 1
     }
 ]

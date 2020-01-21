@@ -31,7 +31,7 @@ fetch("/assets/questions.json")
 // constants
 
 const Correct_Bonus = 10;
-const Max_Questions = 5;
+const Max_Questions = 10;
 
 startGame = () => {
     questionCounter = 0;
@@ -39,9 +39,9 @@ startGame = () => {
     availableQuestions = [...questions];
     getNewQuestion();
     setTimeout(() => {
+        loader.classList.add('hidden');
         game.classList.remove('hidden');
-    }, 2000);
-    loader.classList.add('hidden');
+    }, 1500);
 };
 
 getNewQuestion = () => {
