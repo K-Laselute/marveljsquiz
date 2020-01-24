@@ -17,4 +17,4 @@ A simple quiz app with questions from the marvel "comic" universe. I wanted to m
 
 
 
-Thanks for taking to time read this and have a good day!
+Thanks for taking the time to read this and have a good day!
