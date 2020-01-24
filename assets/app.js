@@ -1,3 +1,7 @@
+const gamecontainer = document.getElementById('gameContainer');
+const difficulty = document.getElementById('difficulty');
+const easybtn = document.getElementById('easy');
+const hardbtn = document.getElementById('hard');
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
 const progressText = document.getElementById('progressText');
@@ -15,18 +19,48 @@ let availableQuestions = [];
 
 let questions = [];
 
-fetch("/assets/questions.json")
-    .then( res => {
-        return res.json();
-    })
-    .then( loadedQuestions => {
-        console.log(loadedQuestions);
-        questions = loadedQuestions;
-        startGame();
-    })
-    .catch( err => {
-        console.error(err);
-    })
+easybtn.addEventListener('click', () => {
+    localStorage.setItem('level', easybtn.innerHTML);
+    difficulty.style.display = 'none';
+    gamecontainer.classList.remove('hidden');
+    easy();
+})
+
+hardbtn.addEventListener('click', () => {
+    localStorage.setItem('level', hardbtn.innerHTML);
+    difficulty.style.display = 'none';
+    gamecontainer.classList.remove('hidden');
+    hard();
+})
+
+const easy = () => {
+    fetch("/assets/questions.json")
+        .then(res => {
+            return res.json();
+        })
+        .then(loadedQuestions => {
+            questions = loadedQuestions;
+            startGame();
+        })
+        .catch(err => {
+            console.error(err);
+        })
+}
+
+const hard = () => {
+    fetch("/assets/hardquestions.json")
+        .then(res => {
+            return res.json();
+        })
+        .then(loadedQuestions => {
+            questions = loadedQuestions;
+            startGame();
+        })
+        .catch(err => {
+            console.error(err);
+        })
+}
+
 
 // constants
 

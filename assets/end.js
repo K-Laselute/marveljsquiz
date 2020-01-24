@@ -2,6 +2,7 @@ const username = document.getElementById('username');
 const saveScoreBtn = document.getElementById('saveScoreBtn');
 const finalScore = document.getElementById('finalScore');
 const mostRecentScore = localStorage.getItem('mostRecentScore');
+const difficulty = localStorage.getItem('level');
 
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
@@ -18,7 +19,8 @@ saveHighScore = (e) => {
 
     const score = {
         score: mostRecentScore,
-        name: username.value
+        name: username.value,
+        level: difficulty
     };
     highScores.push(score);
     highScores.sort((a, b) => b.score - a.score);
