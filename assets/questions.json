@@ -48,7 +48,7 @@
         "answer": 2
     },
     {
-        "question": "Which super hero is know as the man without fear?",
+        "question": "Which super hero is known as the man without fear?",
         "choice1": "Moon Knight",
         "choice2": "Bullseye",
         "choice3": "Wolverine",
@@ -56,7 +56,7 @@
         "answer": 4
     },
     {
-        "question": "Which X-man has pet dragon?",
+        "question": "Which member of the X-men has a pet dragon?",
         "choice1": "Phoenix",
         "choice2": "Shadowcat",
         "choice3": "Wolverine",

@@ -1,6 +1,6 @@
 [
     {
-        "question": "Mandarin lives in:",
+        "question": "The Mandarin lives in:",
         "choice1": "The Valley of Spirits",
         "choice2": "The Mountains of Asgard",
         "choice3": "The Canyons of Atlantis",
@@ -16,7 +16,7 @@
         "answer": 3
     },
     {
-        "question": "Weasel has worked closely with",
+        "question": "Weasel has worked closely with?",
         "choice1": "Cable",
         "choice2": "Deadpool",
         "choice3": "Captain America",
@@ -48,7 +48,7 @@
         "answer": 2
     },
     {
-        "question": "Who paid Mac Gargan to become the Scorpion",
+        "question": "Who paid Mac Gargan to become the Scorpion?",
         "choice1": "Felicia Hardy",
         "choice2": "The Kingpin",
         "choice3": "Norman Osborn",
