@@ -34,7 +34,7 @@ hardbtn.addEventListener('click', () => {
 })
 
 const easy = () => {
-    fetch("/assets/questions.json")
+    fetch("./assets/questions.json")
         .then(res => {
             return res.json();
         })
@@ -48,7 +48,7 @@ const easy = () => {
 }
 
 const hard = () => {
-    fetch("/assets/hardquestions.json")
+    fetch("./assets/hardquestions.json")
         .then(res => {
             return res.json();
         })
@@ -82,13 +82,13 @@ getNewQuestion = () => {
     if(availableQuestions === 0 || questionCounter >= Max_Questions) {
         localStorage.setItem('mostRecentScore', score);
         // go to the end game page
-        return window.location.assign("/end.html");
+        return window.location.assign("./end.html");
     };
 
     // No more questions? 
     if(availableQuestions.length === 0 || questionCounter > Max_Questions) {
         // go to the end page
-        return window.location.assign('/end.html');
+        return window.location.assign('./end.html');
     }
     // Generate a random question and assig it to the h2 w/ class of question 
     questionCounter++;
